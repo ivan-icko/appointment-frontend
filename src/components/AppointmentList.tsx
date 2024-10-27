@@ -2,14 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import AppointmentItem from "./AppointmentItem";
 import { deleteAppointment, getAppointments } from "../services/api";
-
-interface Appointment {
-  id: number;
-  time: string;
-  duration: number;
-  patientName: string;
-  description: string;
-}
+import { Appointment } from "../interfaces/appointment";
 
 interface AppointmentListProps {
   selectedDate: string;

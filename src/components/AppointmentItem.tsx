@@ -1,11 +1,4 @@
-interface AppointmentItemProps {
-  id: number;
-  time: string;
-  duration: number;
-  patientName: string;
-  description: string;
-  onCancel: (id: number) => void;
-}
+import { AppointmentItemProps } from "../interfaces/appointment";
 
 const AppointmentItem: React.FC<AppointmentItemProps> = ({
   id,
