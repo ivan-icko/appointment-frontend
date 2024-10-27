@@ -6,12 +6,3 @@ export interface Appointment {
   startTime: string;
   duration: number;
 }
-
-export interface AppointmentItemProps {
-  id: number | undefined;
-  time: string;
-  duration: number;
-  patientName: string;
-  description: string;
-  onCancel: (id: number) => void;
-}
