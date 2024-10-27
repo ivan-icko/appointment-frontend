@@ -1,4 +1,5 @@
 export interface Appointment {
+  id?: number;
   patientName: string;
   description: string;
   date: string;
@@ -7,7 +8,7 @@ export interface Appointment {
 }
 
 export interface AppointmentItemProps {
-  id: number;
+  id: number | undefined;
   time: string;
   duration: number;
   patientName: string;

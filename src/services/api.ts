@@ -1,10 +1,11 @@
+import { Appointment } from "../interfaces/appointment";
 import { httpService } from "./httpService";
 
-export const deleteAppointment = async (id: number) => {
+export const deleteAppointment: (id: number) => Promise<Appointment> = async (id: number) => {
   return await httpService.delete(`/appointments/${id}`);
 };
 
-export const getAppointments = async (date: string) => {
+export const getAppointments: (date: string) => Promise<Appointment[]> = async (date: string) => {
   return await httpService.get(`/appointments`, { date });
 };
 

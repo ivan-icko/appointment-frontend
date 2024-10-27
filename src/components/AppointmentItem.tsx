@@ -15,7 +15,10 @@ const AppointmentItem: React.FC<AppointmentItemProps> = ({
           {patientName} ({duration} min)
         </p>
         <p className="text-gray-400">
-          {time} - {description}
+          {time}
+        </p>
+        <p className="text-gray-400">
+          {description}
         </p>
       </div>
       <button

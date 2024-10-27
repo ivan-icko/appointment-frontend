@@ -6,13 +6,14 @@ const App: React.FC = () => {
   const [selectedDate, setSelectedDate] = useState<string>(
     new Date().toISOString().split("T")[0]
   );
+  const [refreshToggle, setRefreshToggle] = useState(false);
 
   const handleDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedDate(e.target.value);
   };
 
   const refreshAppointments = () => {
-    // Logic to refresh the list, could be done by re-rendering AppointmentList.
+    setRefreshToggle((prev) => !prev);
   };
 
   return (
@@ -32,7 +33,7 @@ const App: React.FC = () => {
       </div>
 
       {/* Appointment List for the selected date */}
-      <AppointmentList selectedDate={selectedDate} />
+      <AppointmentList selectedDate={selectedDate} refreshToggle={refreshToggle}  />
 
       {/* Form to schedule new appointments */}
       <div className="mt-8 w-full max-w-md">

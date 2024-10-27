@@ -6,15 +6,16 @@ import { Appointment } from "../interfaces/appointment";
 
 interface AppointmentListProps {
   selectedDate: string;
+  refreshToggle: boolean;
 }
 
-const AppointmentList: React.FC<AppointmentListProps> = ({ selectedDate }) => {
+const AppointmentList: React.FC<AppointmentListProps> = ({ selectedDate, refreshToggle }) => {
   const [appointments, setAppointments] = useState<Appointment[]>([]);
 
   useEffect(() => {
     const fetchAppointments = async () => {
       try {
-        const data = await getAppointments(selectedDate);
+        const data: Appointment[] = await getAppointments(selectedDate);
         setAppointments(data);
       } catch (error) {
         console.error("Error fetching appointments:", error);
@@ -22,7 +23,7 @@ const AppointmentList: React.FC<AppointmentListProps> = ({ selectedDate }) => {
     };
 
     fetchAppointments();
-  }, [selectedDate]);
+  }, [selectedDate, refreshToggle]);
 
   const handleCancel = async (id: number) => {
     try {
@@ -46,7 +47,7 @@ const AppointmentList: React.FC<AppointmentListProps> = ({ selectedDate }) => {
             <AppointmentItem
               key={appointment.id}
               id={appointment.id}
-              time={appointment.time}
+              time={appointment.startTime}
               duration={appointment.duration}
               patientName={appointment.patientName}
               description={appointment.description}

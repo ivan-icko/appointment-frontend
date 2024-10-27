@@ -42,9 +42,6 @@ const AppointmentForm: React.FC<AppointmentFormProps> = ({
 
     try {
       await httpService.post("/appointments", newAppointment);
-      setNotification("Appointment successfully scheduled!");
-      alert("Appointment successfully scheduled! Click OK to refresh.");
-      window.location.reload(); // Reload the page after the user clicks OK
       onAppointmentCreated();
     } catch (error) {
       console.error("Error scheduling appointment:", error);
