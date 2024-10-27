@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { httpService } from "../services/httpService";
-import { Appointment } from "../interfaces/appointment";
 
 interface AppointmentFormProps {
   selectedDate: string;
@@ -32,7 +31,7 @@ const AppointmentForm: React.FC<AppointmentFormProps> = ({
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    const newAppointment: Appointment = {
+    const newAppointment = {
       patientName,
       description,
       date: selectedDate,
